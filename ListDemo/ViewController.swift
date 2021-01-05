@@ -35,9 +35,9 @@ class ViewController: UIViewController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
-//        let naviHeight : CGFloat = (navigationController?.navigationBar.frame.height ?? 0)
+        let naviHeight : CGFloat = (navigationController?.navigationBar.frame.height ?? 0)
         
-        myCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
+        myCollectionView = UICollectionView(frame: CGRect(x: 0, y: naviHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - naviHeight), collectionViewLayout: layout)
         //print("view height = \(view.frame.height)    navi height = \(navigationController?.navigationBar.frame.height ?? 0)")
         myCollectionView?.register(DemoCell.self, forCellWithReuseIdentifier: "MyCell1")
         myCollectionView?.register(DemoCell.self, forCellWithReuseIdentifier: "MyCell2")
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         myCollectionView?.isUserInteractionEnabled = true
         myCollectionView?.isScrollEnabled = true
         myCollectionView?.isUserInteractionEnabled = true
-        view.addSubview(myCollectionView ?? UICollectionView())
+        view.addSubview(myCollectionView!)
     }
     
     
@@ -102,7 +102,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
 
         cell.nameLabel?.text = "this is row \(indexPath.row)"
         cell.minuteLable?.text = "\(indexPath.row) minutes"
-        //cell.tempLabel?.text = "\(Double(indexPath.row)+30.5)"
+        cell.tempLabel?.text = "\(Double(indexPath.row)+30.5)"
         cell.layoutIfNeeded()
         return cell
     }
@@ -118,8 +118,8 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
 
         switch cellCount {
         case 1:
-            cellWidth = collectionView.frame.width-2
-            cellHeight = collectionView.frame.height-2
+            cellWidth = collectionView.bounds.width-2
+            cellHeight = collectionView.bounds.height-2
         case 2:
             cellWidth = collectionView.frame.width-2
             cellHeight = collectionView.frame.height/2.0
