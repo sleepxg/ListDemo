@@ -35,7 +35,15 @@ class ViewController: UIViewController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
-        let naviHeight : CGFloat = (navigationController?.navigationBar.frame.height ?? 0)
+        var naviHeight : CGFloat = (navigationController?.navigationBar.frame.height ?? 0)
+        
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let topPadding = window?.safeAreaInsets.top ?? 0
+//            let bottomPadding = window?.safeAreaInsets.bottom ?? 0
+            naviHeight+=topPadding
+            //naviHeight+=bottomPadding
+        }
         
         myCollectionView = UICollectionView(frame: CGRect(x: 0, y: naviHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - naviHeight), collectionViewLayout: layout)
         //print("view height = \(view.frame.height)    navi height = \(navigationController?.navigationBar.frame.height ?? 0)")
@@ -93,17 +101,22 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         
         if (indexPath.row%3==0) {
             cell.ledView?.backgroundColor = UIColor.yellow
+            cell.alarmViewUpdate(type: .None)
         } else if(indexPath.row%3==1){
             cell.ledView?.backgroundColor = UIColor.orange
+            cell.alarmViewUpdate(type: .High)
         }
         else {
             cell.ledView?.backgroundColor = UIColor.systemPink
+            cell.alarmViewUpdate(type: .Low)
         }
 
         cell.nameLabel?.text = "this is row \(indexPath.row)"
         cell.minuteLable?.text = "\(indexPath.row) minutes"
         cell.tempLabel?.text = "\(Double(indexPath.row)+30.5)"
-        cell.layoutIfNeeded()
+        cell.maxTempLabel?.text = "\(Double(indexPath.row)+40.5)"
+        cell.minTempLabel?.text = "\(Double(indexPath.row)+10.5)"
+        
         return cell
     }
     
