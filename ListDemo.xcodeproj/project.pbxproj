@@ -14,6 +14,7 @@
 		670DEAB6259C7E1200B52688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 670DEAB5259C7E1200B52688 /* Assets.xcassets */; };
 		670DEAB9259C7E1200B52688 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 670DEAB7259C7E1200B52688 /* LaunchScreen.storyboard */; };
 		670DEAC3259D80E000B52688 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670DEAC2259D80E000B52688 /* DemoCell.swift */; };
+		673DEFE625A6B7C00035C468 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673DEFE525A6B7C00035C468 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		670DEAB8259C7E1200B52688 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		670DEABA259C7E1200B52688 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		670DEAC2259D80E000B52688 /* DemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
+		673DEFE525A6B7C00035C468 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				670DEAAC259C7DEF00B52688 /* AppDelegate.swift */,
 				670DEAAE259C7DEF00B52688 /* SceneDelegate.swift */,
 				670DEAB0259C7DEF00B52688 /* ViewController.swift */,
+				673DEFE525A6B7C00035C468 /* DetailViewController.swift */,
 				670DEAC2259D80E000B52688 /* DemoCell.swift */,
 				670DEAB2259C7DEF00B52688 /* Main.storyboard */,
 				670DEAB5259C7E1200B52688 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			files = (
 				670DEAB1259C7DEF00B52688 /* ViewController.swift in Sources */,
 				670DEAAD259C7DEF00B52688 /* AppDelegate.swift in Sources */,
+				673DEFE625A6B7C00035C468 /* DetailViewController.swift in Sources */,
 				670DEAC3259D80E000B52688 /* DemoCell.swift in Sources */,
 				670DEAAF259C7DEF00B52688 /* SceneDelegate.swift in Sources */,
 			);

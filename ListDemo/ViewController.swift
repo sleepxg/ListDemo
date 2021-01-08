@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         let removeBarBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(removeCell))
         navigationItem.leftBarButtonItem = addBarBtn
         navigationItem.rightBarButtonItem = removeBarBtn
-        title = "\(cellCount)"
+        //title = "\(cellCount)"
     }
     
     func addCollectionView(){
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         cellCount+=1
         myCollectionView?.reloadData()
         //print("now cell count is \(cellCount)")
-        title = "\(cellCount)"
+        //title = "\(cellCount)"
     }
 
     @objc func removeCell(){
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         cellCount = cellCount>0 ? cellCount : 0
         myCollectionView?.reloadData()
         //print("now cell count is \(cellCount)")
-        title = "\(cellCount)"
+        //title = "\(cellCount)"
     }
 }
 
@@ -121,7 +121,9 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("select at \(indexPath.row)")
+//        print("select at \(indexPath.row)")
+        let vc = DetailViewController(someInt: indexPath.row)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

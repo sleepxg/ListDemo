@@ -80,7 +80,7 @@ class DemoCell: UICollectionViewCell {
         blackView.translatesAutoresizingMaskIntoConstraints = false
         blackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         blackView.topAnchor.constraint(equalTo: nameLabel!.bottomAnchor).isActive = true
-        blackView.widthAnchor.constraint(equalToConstant: contentView.frame.width-2*space).isActive = true
+        blackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.95).isActive = true
         blackView.heightAnchor.constraint(equalToConstant: 3).isActive = true
         
         let label = UILabel()
@@ -98,7 +98,11 @@ class DemoCell: UICollectionViewCell {
         let label = UILabel()
         tempLabel = label
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 40)
+//        label.font = UIFont.systemFont(ofSize: 100)
+//        label.adjustsFontSizeToFitWidth = true
+//        label.minimumScaleFactor = 0.2
+//        label.numberOfLines = 1
+//        label.backgroundColor = UIColor.lightGray
         contentView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
@@ -108,7 +112,7 @@ class DemoCell: UICollectionViewCell {
         
         let unitLabel = UILabel()
         unitLabel.textAlignment = .center
-        unitLabel.font = UIFont.systemFont(ofSize: 20)
+        //unitLabel.font = UIFont.systemFont(ofSize: 20)
         unitLabel.text = tempUnit()
         contentView.addSubview(unitLabel)
         unitLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -119,7 +123,7 @@ class DemoCell: UICollectionViewCell {
     }
     
     func maxMinViewSetting(){
-        let bottomHeight : CGFloat = 150
+        //let bottomHeight : CGFloat = 150
         let maxView = UIView()
         maxView.layer.borderWidth = 1
         maxView.layer.borderColor = UIColor.black.cgColor
@@ -128,7 +132,7 @@ class DemoCell: UICollectionViewCell {
         maxView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         maxView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         maxView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3).isActive = true
-        maxView.heightAnchor.constraint(equalToConstant: bottomHeight).isActive = true
+        maxView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.3).isActive = true
         
         bottomViewSetting(background: maxView, title: "MAX")
         bottomUnitSetting(background: maxView)
@@ -136,7 +140,7 @@ class DemoCell: UICollectionViewCell {
         let maxLabel = UILabel()
         maxTempLabel = maxLabel
         maxLabel.textAlignment = .center
-        maxLabel.font = UIFont.systemFont(ofSize: 30)
+        //maxLabel.font = UIFont.systemFont(ofSize: 30)
         maxView.addSubview(maxLabel)
         maxLabel.translatesAutoresizingMaskIntoConstraints = false
         maxLabel.centerXAnchor.constraint(equalTo: maxView.centerXAnchor).isActive = true
@@ -152,7 +156,7 @@ class DemoCell: UICollectionViewCell {
         minView.leftAnchor.constraint(equalTo: maxView.rightAnchor).isActive = true
         minView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         minView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3).isActive = true
-        minView.heightAnchor.constraint(equalToConstant: bottomHeight).isActive = true
+        minView.heightAnchor.constraint(equalTo: maxView.heightAnchor).isActive = true
         
         bottomViewSetting(background: minView, title: "MIN")
         bottomUnitSetting(background: minView)
@@ -160,7 +164,7 @@ class DemoCell: UICollectionViewCell {
         let minLabel = UILabel()
         minTempLabel = minLabel
         minLabel.textAlignment = .center
-        minLabel.font = UIFont.systemFont(ofSize: 30)
+        //minLabel.font = UIFont.systemFont(ofSize: 30)
         minView.addSubview(minLabel)
         minLabel.translatesAutoresizingMaskIntoConstraints = false
         minLabel.centerXAnchor.constraint(equalTo: minView.centerXAnchor).isActive = true
@@ -176,12 +180,15 @@ class DemoCell: UICollectionViewCell {
         alarmView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         alarmView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         alarmView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.4).isActive = true
-        alarmView.heightAnchor.constraint(equalToConstant: bottomHeight).isActive = true
+        alarmView.heightAnchor.constraint(equalTo: maxView.heightAnchor).isActive = true
         
         bottomViewSetting(background: alarmView, title: "Alarm")
         
         let label = UILabel()
         alarmLabel = label
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.black.cgColor
+        label.textColor = UIColor.white
         label.textAlignment = .center
         alarmView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -209,7 +216,6 @@ class DemoCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.text = title
-//        label.backgroundColor = UIColor.orange
         background.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: background.topAnchor).isActive = true
@@ -226,8 +232,8 @@ class DemoCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.rightAnchor.constraint(equalTo: background.rightAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: background.bottomAnchor).isActive = true
-        label.widthAnchor.constraint(equalTo: background.widthAnchor, multiplier: 0.25).isActive = true
-        label.heightAnchor.constraint(equalTo: label.widthAnchor).isActive = true
+        label.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     func tempUnit()->String{
